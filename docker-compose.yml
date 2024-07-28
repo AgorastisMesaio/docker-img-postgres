@@ -1,0 +1,26 @@
+### Docker Compose example
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  my_network:
+    name: my_network
+    driver: bridge
+
+services:
+  ct_postgres:
+    image: ghcr.io/sw-luis-palacios/base-postgres:main
+    hostname: postgres
+    container_name: ct_postgres
+    restart: always
+    environment:
+      - PGDATA=/var/lib/postgresql/data/guacamole
+      - POSTGRES_DB=guacamole_db
+      - POSTGRES_USER=guacamole
+      - POSTGRES_PASSWORD=password
+    networks:
+      - my_network
+    volumes:
+    - ./dockerfiles/guacamole/initdb:/docker-entrypoint-initdb.d:ro
+    - postgres_data:/var/lib/postgresql/data
