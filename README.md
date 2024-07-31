@@ -1,6 +1,6 @@
 # Adminer docker container
 
-![GitHub action workflow status](https://github.com/SW-Luis-Palacios/base-postgres/actions/workflows/docker-publish.yml/badge.svg)
+![GitHub action workflow status](https://github.com/AgorastisMesaio/docker-img-postgres/actions/workflows/docker-publish.yml/badge.svg)
 
 This repository contains a `Dockerfile` aimed to create a *base image* to provide a dockerized PostgreSQL service. PostgreSQL is a powerful, open-source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads. PostgreSQL has a strong reputation for reliability, feature robustness, and performance.
 
@@ -51,7 +51,7 @@ networks:
 
 services:
   ct_postgres:
-    image: ghcr.io/sw-luis-palacios/base-postgres:main
+    image: ghcr.io/agorastismesaio/docker-img-postgres:main
     hostname: postgres
     container_name: ct_postgres
     restart: always
@@ -85,11 +85,11 @@ If you copy or fork this project to create your own base image.
 To build the Docker image, run the following command in the directory containing the Dockerfile:
 
 ```sh
-docker build -t your-image/base-postgres:main .
+docker build -t your-image/docker-img-postgres:main .
 ```
 
 ### Troubleshoot
 
 ```sh
-docker run --rm --name ct_postgres --hostname postgres -p 8080:8080 your-image/base-postgres:main
+docker run --rm --name ct_postgres --hostname postgres -p 8080:8080 your-image/docker-img-postgres:main
 ```
